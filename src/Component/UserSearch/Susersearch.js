@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+import Battle from '../Battle/Battle';
+  
 
 class Susersearch extends Component {
 
@@ -49,7 +51,8 @@ class Susersearch extends Component {
         ) }
         
         return(<div>
-            <img src={this.state.obj.avatar_url} />
+            <p>@{this.state.obj.login}</p>
+            <img src={this.state.obj.avatar_url} width="200px" height="200px" alt="" />
             <p onClick={this.handleReset}>Reset</p>
         </div>)
 

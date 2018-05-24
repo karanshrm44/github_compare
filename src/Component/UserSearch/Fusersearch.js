@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+import Battle from '../Battle/Battle';
 
 class Fusersearch extends Component {
 
@@ -20,8 +21,9 @@ class Fusersearch extends Component {
             this.setState({
             isOpen:!this.state.isOpen,
             obj:{...res.data.items[0]}
-            })
+            }, this.props.drenderFirst(this.state.isOpen) )
            })
+
     }
 
     handleChange=(event)=>{
@@ -35,6 +37,7 @@ class Fusersearch extends Component {
             username1:'',
             isOpen:!this.state.isOpen
         })
+        
     }
 
     render(){
@@ -47,13 +50,15 @@ class Fusersearch extends Component {
              <input type="text" placeholder="Github UserName" value={this.state.username1}
               onChange={this.handleChange}/><br></br>
              <button onClick={this.handleClick}>Submit</button>
+             <Battle />
             </div>
         )
 
      }
       return(
          <div>
-            <img src={this.state.obj.avatar_url} />
+            <p>@{this.state.obj.login}</p>
+            <img src={this.state.obj.avatar_url} width="200px" height="200px" alt=""/>
             <p onClick={this.handleReset}>Reset</p>
             
          </div>
