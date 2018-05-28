@@ -12,7 +12,9 @@ constructor(props)
 
 render()
 {
-    return(<div></div>)
+    return(<div>
+        <p>hello Battle</p>
+    </div>)
 }
 }
 

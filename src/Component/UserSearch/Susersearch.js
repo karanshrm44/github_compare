@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import Battle from '../Battle/Battle';
   
 
 class Susersearch extends Component {
@@ -26,7 +25,7 @@ class Susersearch extends Component {
              this.setState({
                  isOpen:!this.state.isOpen,
                  obj:{...res.data.items[0]}
-             })
+             },()=>{this.props.drenderSecond(this.state.isOpen,this.state.obj)})
         })
     }
 
